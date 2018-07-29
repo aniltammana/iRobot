@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../router.animations';
+import { CitizenService } from '../../shared/services/citizen.service';
+import { Document } from '../../shared/services/Document';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
     selector: 'app-form',
@@ -9,9 +12,15 @@ import { routerTransition } from '../../router.animations';
 })
 export class FormComponent implements OnInit {
     localUrl: any[];
-    constructor() {}
+    document:Document;
+    documents:Document[];
 
-    ngOnInit() {}
+    constructor(private citizenService:CitizenService,private toastr: ToastrService) {
+        this.document= new Document();
+        this.documents=[]
+     }   
+
+    ngOnInit() { }
 
     showPreviewImage(event: any) {
         if (event.target.files && event.target.files[0]) {
@@ -20,5 +29,12 @@ export class FormComponent implements OnInit {
                 this.localUrl = event.target.result;
             }
             reader.readAsDataURL(event.target.files[0]);
-        }}
+        }
+    }
+
+    UploadDocument() { 
+      this.documents.push(this.document);
+      this.toastr.success('Docucment status', 'Your document has been uploaded succesfully!');
+    }
+
 }

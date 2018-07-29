@@ -32,9 +32,10 @@ export class ChartsComponent implements OnInit {
 
     // Doughnut
     public doughnutChartLabels: string[] = [
-        'Download Sales',
-        'In-Store Sales',
-        'Mail-Order Sales'
+        'Spending Score',
+        'Overall score',
+        'Payment score',
+       
     ];
     public doughnutChartData: number[] = [350, 450, 100];
     public doughnutChartType: string = 'doughnut';
@@ -57,20 +58,20 @@ export class ChartsComponent implements OnInit {
 
     // Pie
     public pieChartLabels: string[] = [
-        'Download Sales',
-        'In-Store Sales',
-        'Mail Sales'
+        'Spending Score',
+        'Payment score',
+        'Overall score'
     ];
     public pieChartData: number[] = [300, 500, 100];
     public pieChartType: string = 'pie';
 
     // PolarArea
     public polarAreaChartLabels: string[] = [
-        'Download Sales',
-        'In-Store Sales',
-        'Mail Sales',
-        'Telesales',
-        'Corporate Sales'
+        'Spending Score',
+        'Payment score',
+        'Overall score',
+        'score x',
+        'score y'
     ];
     public polarAreaChartData: number[] = [300, 500, 100, 40, 120];
     public polarAreaLegend: boolean = true;

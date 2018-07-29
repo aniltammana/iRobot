@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../router.animations';
+import { CitizenService } from '../../shared/services/citizen.service';
+import { Customer } from '../../shared/services/Document';
 
 @Component({
     selector: 'app-tables',
@@ -8,7 +10,11 @@ import { routerTransition } from '../../router.animations';
     animations: [routerTransition()]
 })
 export class TablesComponent implements OnInit {
-    constructor() {}
+    customers:Customer[];
+
+    constructor(private citizenService: CitizenService) {
+      this.customers = this.citizenService.customers;
+    }
 
     ngOnInit() {}
 }
